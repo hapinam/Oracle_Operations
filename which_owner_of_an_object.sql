@@ -1,0 +1,1 @@
+select * from all_objects where lower(object_name) like '%jtf_notes_tl%' and object_type='TABLE';

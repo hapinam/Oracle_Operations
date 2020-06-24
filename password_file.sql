@@ -1,0 +1,1 @@
+orapwd file=$ORACLE_HOME/dbs/orapwhomo5 entries=5 (case sensetive)
