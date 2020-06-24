@@ -1,0 +1,1 @@
+select * from dba_role_privs where granted_role='DBA' and grantee not in ('SYS','SYSTEM');

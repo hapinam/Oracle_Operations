@@ -1,0 +1,2 @@
+select 'alter index '|| owner ||'.'|| index_name ||' noparallel;' from dba_indexes , (select sum(bytes) byte, segment_name from dba_segments  group by segment_name) s 
+where owner like upper('OWNER') and s.segment_name = table_name and s.byte/1024/1024/1024>=10 and owner not in ('SYS','SYSTEM');
