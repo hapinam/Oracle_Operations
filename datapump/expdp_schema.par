@@ -1,0 +1,25 @@
+#-----------------------------------------------------------------------------
+# File      : datapump/expdp_schema.par
+# Purpose   : Data Pump parameter file for a full schema export.
+# Usage     : expdp parfile=datapump/expdp_schema.par
+#             Do NOT put the password in this file. Either connect with an
+#             OS authenticated account:
+#                 expdp \"/ as sysdba\" parfile=datapump/expdp_schema.par
+#             or use a secure external password store (wallet):
+#                 expdp /@orcl_dp parfile=datapump/expdp_schema.par
+# Requires  : DATAPUMP_EXP_FULL_DATABASE, and READ/WRITE on the directory
+#             object used below.
+# Tested on : Oracle Database 11gR2, 12cR1 and 12cR2
+# WARNING   : PARALLEL above the CPU count will saturate the server. Match
+#             the number of dump files to the degree of parallelism with the
+#             %U substitution below.
+#
+# Copyright (c) 2026 Mohamed Dawood. MIT Licence; see LICENSE.
+#-----------------------------------------------------------------------------
+
+SCHEMAS=APP_SCHEMA
+DIRECTORY=DATA_PUMP_DIR
+DUMPFILE=app_schema_%U.dmp
+LOGFILE=app_schema_expdp.log
+PARALLEL=4
+COMPRESSION=ALL
