@@ -1,1 +1,0 @@
-select * from all_ind_columns where table_name in ('TABLE_NAME');

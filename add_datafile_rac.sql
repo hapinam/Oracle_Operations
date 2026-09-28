@@ -1,1 +1,0 @@
-alter tablespace delta_auto add datafile'+DATAC2' size 10G autoextend on next 1G;

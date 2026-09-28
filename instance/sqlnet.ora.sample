@@ -1,0 +1,22 @@
+#-----------------------------------------------------------------------------
+# File      : instance/sqlnet.ora.sample
+# Purpose   : Sample sqlnet.ora showing name resolution order and the logon
+#             version settings needed when old clients must still connect.
+# Usage     : copy to $ORACLE_HOME/network/admin/sqlnet.ora and reload the
+#             listener; no database restart is needed.
+# Requires  : write access to the Oracle home network configuration
+# Tested on : Oracle Database 11gR2, 12cR1 and 12cR2
+# WARNING   : ALLOWED_LOGON_VERSION=8 re-enables the weak pre-11g password
+#             verifier. Only use it while old clients are still in service,
+#             and remove it as soon as they are upgraded.
+#
+# Copyright (c) 2026 Mohamed Dawood. MIT Licence; see LICENSE.
+#-----------------------------------------------------------------------------
+
+NAMES.DIRECTORY_PATH= (TNSNAMES, ONAMES, HOSTNAME)
+
+#SQLNET.AUTHENTICATION_SERVICES = (NTS)
+#SQLNET.ALLOWED_LOGON_VERSION=8
+
+SQLNET.ALLOWED_LOGON_VERSION_SERVER=8
+SQLNET.ALLOWED_LOGON_VERSION_CLIENT=8
